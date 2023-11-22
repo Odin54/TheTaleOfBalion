@@ -3,12 +3,15 @@ using UnityEngine;
 public class Example : MonoBehaviour
 {
     private Rigidbody2D rigidBody;
+    private float MoveSpeedAdjuster;
+
     public float MoveSpeed;                  //5
     public float BackMoveSpeedAmplifier;     //0.7
     public float RotationAnglePerSecond;     //180
 
     void Start()
     {
+        MoveSpeedAdjuster = 3;
         rigidBody = GetComponent<Rigidbody2D>();
     }
 
@@ -42,6 +45,16 @@ public class Example : MonoBehaviour
         if (Input.GetKey(KeyCode.E))
         {
             transform.Rotate(new Vector3(0, 0, -1 * RotationAnglePerSecond) * Time.deltaTime, Space.World);
+        }
+
+        if (Input.GetKeyDown(KeyCode.LeftShift))
+        {
+            MoveSpeed = MoveSpeed + MoveSpeedAdjuster;
+        }
+
+        if (Input.GetKeyUp(KeyCode.LeftShift))
+        {
+            MoveSpeed = MoveSpeed - MoveSpeedAdjuster;
         }
     }
 }
