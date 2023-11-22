@@ -4,13 +4,16 @@ using UnityEngine;
 
 public class RoofDisappearing : MonoBehaviour
 {
-    SpriteRenderer sprite;
+    private SpriteRenderer RoofLayer;
+
+    public float EnterOpacity;     //0.3
+    public float LeaveOpacity;     //1
+
     void Start()
     {
-        sprite = GetComponent<SpriteRenderer>();
+        RoofLayer = GetComponent<SpriteRenderer>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -18,11 +21,11 @@ public class RoofDisappearing : MonoBehaviour
 
     private void OnTriggerEnter2D()
     {
-        sprite.color = new Color (1f, 1f, 1f, 0.3f);
+        RoofLayer.color = new Color (1f, 1f, 1f, EnterOpacity);
     }
         private void OnTriggerExit2D()
     {
-        sprite.color = new Color (1f, 1f, 1f, 1f);
+        RoofLayer.color = new Color (1f, 1f, 1f, LeaveOpacity);
     }
 
 }

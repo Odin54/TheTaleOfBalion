@@ -2,45 +2,46 @@ using UnityEngine;
 
 public class Example : MonoBehaviour
 {
-    Rigidbody2D rb;
-    public float moveSpeed;
+    private Rigidbody2D rigidBody;
+    public float MoveSpeed;                  //5
+    public float BackMoveSpeedAmplifier;     //0.7
+    public float RotationAnglePerSecond;     //180
 
     void Start()
     {
-        //Fetch the Rigidbody component you attach from your GameObject
-        rb = GetComponent<Rigidbody2D>();
-        //Set the speed of the GameObject
-        moveSpeed = 4.0f;
+        rigidBody = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
         if (Input.GetKey(KeyCode.W))
         {
-            transform.position += transform.up * moveSpeed * Time.deltaTime;
+            transform.position += transform.up * MoveSpeed * Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.S))
         {
-            transform.position += -transform.up * moveSpeed * 0.7f * Time.deltaTime;
+            transform.position += -transform.up * MoveSpeed * BackMoveSpeedAmplifier * Time.deltaTime;
         }
+
         if (Input.GetKey(KeyCode.D))
         {
-            transform.position += transform.right * moveSpeed * 0.7f * Time.deltaTime;
+            transform.position += transform.right * MoveSpeed * BackMoveSpeedAmplifier * Time.deltaTime;
         }
 
         if (Input.GetKey(KeyCode.A))
         {
-            transform.position += -transform.right * moveSpeed * 0.7f * Time.deltaTime;
+            transform.position += -transform.right * MoveSpeed * BackMoveSpeedAmplifier * Time.deltaTime;
         }
+
         if (Input.GetKey(KeyCode.Q))
         {
-            transform.Rotate(new Vector3(0, 0, 180f) * Time.deltaTime, Space.World);
+            transform.Rotate(new Vector3(0, 0, RotationAnglePerSecond) * Time.deltaTime, Space.World);
         }
 
         if (Input.GetKey(KeyCode.E))
         {
-            transform.Rotate(new Vector3(0, 0, -180f) * Time.deltaTime, Space.World);
+            transform.Rotate(new Vector3(0, 0, -1 * RotationAnglePerSecond) * Time.deltaTime, Space.World);
         }
     }
 }
