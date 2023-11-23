@@ -392,6 +392,7 @@
 "Assets/Scripts/PlayerMovement.cs"
 "Assets/Scripts/PlayerStamina.cs"
 "Assets/Scripts/PlayerStats.cs"
+"Assets/StaminaText.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
 -langversion:9.0
 
