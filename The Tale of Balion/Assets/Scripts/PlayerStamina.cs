@@ -61,20 +61,23 @@ public class PlayerStamina : MonoBehaviour
 
     void Update()
     {
-        if (PlayerStats.IsPlayerSprinting)
+        if (CurrentGameState.IsGameplayTurnedOn)
         {
-            if (PlayerStats.PlayerStaminaAmount > 0)
+            if (PlayerStats.IsPlayerSprinting)
             {
-                UseSprint();
+                if (PlayerStats.PlayerStaminaAmount > 0)
+                {
+                    UseSprint();
+                }
+                else
+                {
+                    StopSprint();
+                }
             }
             else
             {
-                StopSprint();
+                StaminaRest();
             }
-        }
-        else
-        {
-            StaminaRest();
         }
     }
 }

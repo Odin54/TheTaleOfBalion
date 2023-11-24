@@ -64,7 +64,10 @@
     <Compile Include="Assets\Scripts\HeadRotation.cs" />
     <Compile Include="Assets\StaminaText.cs" />
     <Compile Include="Assets\Scripts\PlayerStats.cs" />
+    <Compile Include="Assets\Scripts\GUIController.cs" />
+    <Compile Include="Assets\Scripts\CurrentGameState.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\GUISwitcher.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

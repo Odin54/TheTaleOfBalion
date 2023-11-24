@@ -20,73 +20,80 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.W))
+        if (CurrentGameState.IsGameplayTurnedOn)
         {
-            transform.position += transform.up * PlayerStats.MoveSpeed * Time.deltaTime;
-            PlayerStats.IsPlayerMoving  = true;
-        }
-        if (Input.GetKeyUp(KeyCode.W))
-        {
-            transform.position += transform.up * PlayerStats.MoveSpeed * Time.deltaTime;
-            PlayerStats.IsPlayerMoving  = false;
-        }
-
-        if (Input.GetKey(KeyCode.S))
-        {
-            transform.position += -transform.up * PlayerStats.MoveSpeed * BackMoveSpeedAmplifier * Time.deltaTime;
-            PlayerStats.IsPlayerMoving  = true;
-        }
-        if (Input.GetKeyUp(KeyCode.S))
-        {
-            transform.position += transform.up * PlayerStats.MoveSpeed * Time.deltaTime;
-            PlayerStats.IsPlayerMoving  = false;
-        }
-
-        if (Input.GetKey(KeyCode.D))
-        {
-            transform.position += transform.right * PlayerStats.MoveSpeed * BackMoveSpeedAmplifier * Time.deltaTime;
-            PlayerStats.IsPlayerMoving  = true;
-        }
-        if (Input.GetKeyUp(KeyCode.D))
-        {
-            transform.position += transform.up * PlayerStats.MoveSpeed * Time.deltaTime;
-            PlayerStats.IsPlayerMoving  = false;
-        }
-
-        if (Input.GetKey(KeyCode.A))
-        {
-            transform.position += -transform.right * PlayerStats.MoveSpeed * BackMoveSpeedAmplifier * Time.deltaTime;
-            PlayerStats.IsPlayerMoving  = true;
-        }
-        if (Input.GetKeyUp(KeyCode.A))
-        {
-            transform.position += transform.up * PlayerStats.MoveSpeed * Time.deltaTime;
-            PlayerStats.IsPlayerMoving  = false;
-        }
-
-        if (Input.GetKey(KeyCode.Q))
-        {
-            transform.Rotate(new Vector3(0, 0, RotationAnglePerSecond) * Time.deltaTime, Space.World);
-        }
-
-        if (Input.GetKey(KeyCode.E))
-        {
-            transform.Rotate(new Vector3(0, 0, -1 * RotationAnglePerSecond) * Time.deltaTime, Space.World);
-        }
-
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            if (PlayerStats.IsPlayerMoving)
+            if (Input.GetKey(KeyCode.W))
             {
-                PlayerStamina.UseSprint();
+                transform.position += transform.up * PlayerStats.MoveSpeed * Time.deltaTime;
+                PlayerStats.IsPlayerMoving  = true;
             }
-        }
-
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            if (PlayerStats.IsPlayerSprinting)
+            if (Input.GetKeyUp(KeyCode.W))
             {
-                PlayerStamina.StopSprint();
+                transform.position += transform.up * PlayerStats.MoveSpeed * Time.deltaTime;
+                PlayerStats.IsPlayerMoving  = false;
+            }
+
+            if (Input.GetKey(KeyCode.S))
+            {
+                transform.position += -transform.up * PlayerStats.MoveSpeed * BackMoveSpeedAmplifier * Time.deltaTime;
+                PlayerStats.IsPlayerMoving  = true;
+            }
+            if (Input.GetKeyUp(KeyCode.S))
+            {
+                transform.position += transform.up * PlayerStats.MoveSpeed * Time.deltaTime;
+                PlayerStats.IsPlayerMoving  = false;
+            }
+
+            if (Input.GetKey(KeyCode.D))
+            {
+                transform.position += transform.right * PlayerStats.MoveSpeed * BackMoveSpeedAmplifier * Time.deltaTime;
+                PlayerStats.IsPlayerMoving  = true;
+            }
+            if (Input.GetKeyUp(KeyCode.D))
+            {
+                transform.position += transform.up * PlayerStats.MoveSpeed * Time.deltaTime;
+                PlayerStats.IsPlayerMoving  = false;
+            }
+
+            if (Input.GetKey(KeyCode.A))
+            {
+                transform.position += -transform.right * PlayerStats.MoveSpeed * BackMoveSpeedAmplifier * Time.deltaTime;
+                PlayerStats.IsPlayerMoving  = true;
+            }
+            if (Input.GetKeyUp(KeyCode.A))
+            {
+                transform.position += transform.up * PlayerStats.MoveSpeed * Time.deltaTime;
+                PlayerStats.IsPlayerMoving  = false;
+            }
+
+            if (Input.GetKey(KeyCode.Q))
+            {
+                transform.Rotate(new Vector3(0, 0, RotationAnglePerSecond) * Time.deltaTime, Space.World);
+            }
+
+            if (Input.GetKey(KeyCode.E))
+            {
+                transform.Rotate(new Vector3(0, 0, -1 * RotationAnglePerSecond) * Time.deltaTime, Space.World);
+            }
+
+            if (Input.GetKey(KeyCode.LeftShift))
+            {
+                if (PlayerStats.IsPlayerMoving)
+                {
+                    PlayerStamina.UseSprint();
+                }
+                if (!PlayerStats.IsPlayerSprinting)
+                {
+                    PlayerStamina.StaminaRest();
+                }
+            }
+
+            if (Input.GetKeyUp(KeyCode.LeftShift))
+            {
+                if (PlayerStats.IsPlayerSprinting)
+                {
+                    PlayerStamina.StopSprint();
+                }
             }
         }
     }
