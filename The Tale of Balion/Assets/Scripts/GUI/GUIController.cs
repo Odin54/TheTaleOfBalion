@@ -4,28 +4,32 @@ using UnityEngine;
 
 public class GUIController : MonoBehaviour
 {
-    public GameObject gameplay;
+    public GameObject gameplayCanvas;
+    public GameObject smallGameMenuCanvas;
+    public GameObject smallGameMenuSettings;
     public GameObject smallGameMenu;
 
     public void CloseSmallGameMenu()
     {
         CurrentGameState.IsGameplayTurnedOn = true;
         CurrentGameState.SmallGameMenu      = false;
-        gameplay.SetActive(CurrentGameState.IsGameplayTurnedOn);
-        smallGameMenu.SetActive(CurrentGameState.SmallGameMenu);
+        gameplayCanvas.SetActive(CurrentGameState.IsGameplayTurnedOn);
+        smallGameMenuCanvas.SetActive(CurrentGameState.SmallGameMenu);
     }
 
     public void OpenSmallGameMenu()
     {
         CurrentGameState.IsGameplayTurnedOn = false;
         CurrentGameState.SmallGameMenu      = true;
-        gameplay.SetActive(CurrentGameState.IsGameplayTurnedOn);
-        smallGameMenu.SetActive(CurrentGameState.SmallGameMenu);
+        gameplayCanvas.SetActive(CurrentGameState.IsGameplayTurnedOn);
+        smallGameMenu.SetActive(true);
+        smallGameMenuSettings.SetActive(false);
+        smallGameMenuCanvas.SetActive(CurrentGameState.SmallGameMenu);
     }
 
     void Start()
     {
-        smallGameMenu.SetActive(CurrentGameState.SmallGameMenu);
+        smallGameMenuCanvas.SetActive(CurrentGameState.SmallGameMenu);
     }
 
     void Update()

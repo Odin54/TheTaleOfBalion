@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class BackToGameButton : MonoBehaviour
 {
-    public GameObject gameplay;
-    public GameObject smallGameMenu;
+    public GameObject gameplayCanvas;
+    public GameObject smallGameMenuCanvas;
 
     public void BackToGame()
     {
         CurrentGameState.IsGameplayTurnedOn = true;
         CurrentGameState.SmallGameMenu      = false;
-        gameplay.SetActive(CurrentGameState.IsGameplayTurnedOn);
-        smallGameMenu.SetActive(CurrentGameState.SmallGameMenu);
+        gameplayCanvas.SetActive(CurrentGameState.IsGameplayTurnedOn);
+        smallGameMenuCanvas.SetActive(CurrentGameState.SmallGameMenu);
     }
 }
