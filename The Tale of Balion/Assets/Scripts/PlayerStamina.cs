@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerStamina : MonoBehaviour
 {
     private static float NeededStaminaAmplifier = 0.2f;
-    private static float SprintStaminaAdjuster  = -15f;
+    private static float SprintStaminaAdjuster  = -10f;
     private static float RestStaminaAdjuster    = 20f;
     private static bool IsSprintIncreased       = false;
 

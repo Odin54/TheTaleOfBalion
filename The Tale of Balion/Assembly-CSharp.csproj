@@ -65,9 +65,11 @@
     <Compile Include="Assets\CameraScaler\CameraScaler.cs" />
     <Compile Include="Assets\Scripts\PlayerStamina.cs" />
     <Compile Include="Assets\Scripts\GUI\GUIController.cs" />
+    <Compile Include="Assets\StaminaBarScale.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Scripts\GUI\CurrentGameState.cs" />
     <Compile Include="Assets\Scripts\HeadRotation.cs" />
+    <Compile Include="Assets\Scripts\GUI\GUIStaminaBarScale.cs" />
     <Compile Include="Assets\StaminaText.cs" />
     <Compile Include="Assets\Scripts\GUI\Buttons\ToSettingsButton.cs" />
     <Compile Include="Assets\Scripts\PlayerStats.cs" />

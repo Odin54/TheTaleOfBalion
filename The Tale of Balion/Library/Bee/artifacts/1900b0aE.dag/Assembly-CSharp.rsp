@@ -392,6 +392,7 @@
 "Assets/Scripts/GUI/Buttons/ToSettingsButton.cs"
 "Assets/Scripts/GUI/CurrentGameState.cs"
 "Assets/Scripts/GUI/GUIController.cs"
+"Assets/Scripts/GUI/GUIStaminaBarScale.cs"
 "Assets/Scripts/GUI/GUISwitcher.cs"
 "Assets/Scripts/HeadRotation.cs"
 "Assets/Scripts/ObjectOpacityChangeTrigger.cs"
@@ -399,6 +400,7 @@
 "Assets/Scripts/PlayerStamina.cs"
 "Assets/Scripts/PlayerStats.cs"
 "Assets/Scripts/ScreenSize.cs"
+"Assets/StaminaBarScale.cs"
 "Assets/StaminaText.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
 -langversion:9.0
