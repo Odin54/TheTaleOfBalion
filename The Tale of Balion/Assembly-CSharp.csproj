@@ -60,19 +60,22 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\ScreenSize.cs" />
     <Compile Include="Assets\Scripts\GUI\Buttons\BackToGameButton.cs" />
-    <Compile Include="Assets\Scripts\GUI\GUISwitcher.cs" />
+    <Compile Include="Assets\Scripts\GUI\GameplayUI\GUIHealthBarScale.cs" />
     <Compile Include="Assets\Scripts\ObjectOpacityChangeTrigger.cs" />
+    <Compile Include="Assets\Scripts\GUI\GameplayUI\HealthText.cs" />
     <Compile Include="Assets\CameraScaler\CameraScaler.cs" />
+    <Compile Include="Assets\Scripts\GUI\GameplayUI\GUIStaminaBarScale.cs" />
     <Compile Include="Assets\Scripts\PlayerStamina.cs" />
-    <Compile Include="Assets\Scripts\GUI\GUIController.cs" />
-    <Compile Include="Assets\StaminaBarScale.cs" />
     <Compile Include="Assets\TutorialInfo\Scripts\Readme.cs" />
+    <Compile Include="Assets\Scripts\GUI\GameplayUI\GUIController.cs" />
+    <Compile Include="Assets\Scripts\GUI\GameplayUI\StaminaText.cs" />
     <Compile Include="Assets\Scripts\GUI\CurrentGameState.cs" />
     <Compile Include="Assets\Scripts\HeadRotation.cs" />
-    <Compile Include="Assets\Scripts\GUI\GUIStaminaBarScale.cs" />
-    <Compile Include="Assets\StaminaText.cs" />
+    <Compile Include="Assets\Scripts\GUI\GameplayUI\StatsBarTextSwitcher.cs" />
     <Compile Include="Assets\Scripts\GUI\Buttons\ToSettingsButton.cs" />
+    <Compile Include="Assets\Scripts\GUI\GameplayUI\ManaText.cs" />
     <Compile Include="Assets\Scripts\PlayerStats.cs" />
+    <Compile Include="Assets\Scripts\GUI\GameplayUI\GUIManaBarScale.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
   </ItemGroup>
   <ItemGroup>
