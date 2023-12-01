@@ -4,18 +4,41 @@ public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody2D rigidBody;
     public static float MoveSpeedAdjuster;
+    public static float MoveSpeedBackAdjuster;
     public static float RotationSpeedAdjuster;
 
-    public float BackMoveSpeedAmplifier;                 //0.7
     public static float RotationAnglePerSecond = 180;
 
     private bool IsPlayerSprintUsable = PlayerStamina.IsPlayerSprintUsable();
+    private bool IsBackMoveUsed       = false;
 
+    public Animator animator;
     void Start()
     {
         MoveSpeedAdjuster       = 5;
+        MoveSpeedBackAdjuster   = -2;
         RotationSpeedAdjuster   = 30;
         rigidBody = GetComponent<Rigidbody2D>();
+    }
+
+    private void BackMoveUse()
+    {
+        if (!IsBackMoveUsed)
+        {
+            IsBackMoveUsed = true;
+            PlayerStats.MoveSpeed += MoveSpeedBackAdjuster;
+            Debug.Log(PlayerStats.MoveSpeed + " 11");
+        }
+    }
+
+
+    private void BackMoveCancelUse()
+    {
+        if (IsBackMoveUsed)
+        {
+            IsBackMoveUsed = false;
+            PlayerStats.MoveSpeed -= MoveSpeedBackAdjuster;
+        }
     }
 
     void Update()
@@ -35,8 +58,10 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetKey(KeyCode.S))
             {
-                transform.position += -transform.up * PlayerStats.MoveSpeed * BackMoveSpeedAmplifier * Time.deltaTime;
-                PlayerStats.IsPlayerMoving  = true;
+                BackMoveUse();
+                transform.position += -transform.up * PlayerStats.MoveSpeed * Time.deltaTime;
+                PlayerStats.IsPlayerMoving = true;
+                IsBackMoveUsed  = true;
             }
             if (Input.GetKeyUp(KeyCode.S))
             {
@@ -46,8 +71,10 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetKey(KeyCode.D))
             {
-                transform.position += transform.right * PlayerStats.MoveSpeed * BackMoveSpeedAmplifier * Time.deltaTime;
+                BackMoveUse();
+                transform.position += transform.right * PlayerStats.MoveSpeed * Time.deltaTime;
                 PlayerStats.IsPlayerMoving  = true;
+                IsBackMoveUsed  = true;
             }
             if (Input.GetKeyUp(KeyCode.D))
             {
@@ -57,13 +84,25 @@ public class PlayerMovement : MonoBehaviour
 
             if (Input.GetKey(KeyCode.A))
             {
-                transform.position += -transform.right * PlayerStats.MoveSpeed * BackMoveSpeedAmplifier * Time.deltaTime;
+                BackMoveUse();
+                transform.position += -transform.right * PlayerStats.MoveSpeed * Time.deltaTime;
                 PlayerStats.IsPlayerMoving  = true;
+                IsBackMoveUsed  = true;
             }
             if (Input.GetKeyUp(KeyCode.A))
             {
                 transform.position += transform.up * PlayerStats.MoveSpeed * Time.deltaTime;
                 PlayerStats.IsPlayerMoving  = false;
+            }
+
+            if (!PlayerStats.IsPlayerMoving)
+            {
+                animator.SetFloat("Speed", 0);
+            }
+            else
+            {
+                Debug.Log(PlayerStats.MoveSpeed);
+                animator.SetFloat("Speed", PlayerStats.MoveSpeed);
             }
 
             if (Input.GetKey(KeyCode.Q))
@@ -94,6 +133,17 @@ public class PlayerMovement : MonoBehaviour
                 {
                     PlayerStamina.StopSprint();
                 }
+            }
+
+            if (!Input.GetKeyDown(KeyCode.S))
+            {
+                if (!Input.GetKeyDown(KeyCode.A))
+                {
+                    if (!Input.GetKeyDown(KeyCode.D))
+                    {
+                        BackMoveCancelUse();
+                    }
+                }   
             }
         }
     }
