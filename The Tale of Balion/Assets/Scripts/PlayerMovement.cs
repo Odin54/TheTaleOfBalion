@@ -12,7 +12,9 @@ public class PlayerMovement : MonoBehaviour
     private bool IsPlayerSprintUsable = PlayerStamina.IsPlayerSprintUsable();
     private bool IsBackMoveUsed       = false;
 
-    public Animator animator;
+    public Animator legsMove;
+    public Animator leftHandMove;
+    public Animator rightHandMove;
     void Start()
     {
         MoveSpeedAdjuster       = 5;
@@ -97,12 +99,16 @@ public class PlayerMovement : MonoBehaviour
 
             if (!PlayerStats.IsPlayerMoving)
             {
-                animator.SetFloat("Speed", 0);
+                legsMove.SetFloat("Speed", 0);
+                leftHandMove.SetFloat("Speed", 0);
+                rightHandMove.SetFloat("Speed", 0);
             }
             else
             {
                 Debug.Log(PlayerStats.MoveSpeed);
-                animator.SetFloat("Speed", PlayerStats.MoveSpeed);
+                legsMove.SetFloat("Speed", PlayerStats.MoveSpeed);
+                leftHandMove.SetFloat("Speed", PlayerStats.MoveSpeed);
+                rightHandMove.SetFloat("Speed", PlayerStats.MoveSpeed);
             }
 
             if (Input.GetKey(KeyCode.Q))
