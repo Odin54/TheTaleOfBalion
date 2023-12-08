@@ -29,7 +29,6 @@ public class PlayerMovement : MonoBehaviour
         {
             IsBackMoveUsed = true;
             PlayerStats.MoveSpeed += MoveSpeedBackAdjuster;
-            Debug.Log(PlayerStats.MoveSpeed + " 11");
         }
     }
 
@@ -105,7 +104,7 @@ public class PlayerMovement : MonoBehaviour
             }
             else
             {
-                Debug.Log(PlayerStats.MoveSpeed);
+                // Debug.Log(PlayerStats.MoveSpeed);
                 legsMove.SetFloat("Speed", PlayerStats.MoveSpeed);
                 leftHandMove.SetFloat("Speed", PlayerStats.MoveSpeed);
                 rightHandMove.SetFloat("Speed", PlayerStats.MoveSpeed);
@@ -151,6 +150,8 @@ public class PlayerMovement : MonoBehaviour
                     }
                 }   
             }
+            PlayerStats.PlayerPositon   = transform.position;
+            // Debug.Log(PlayerStats.PlayerPositon);
         }
     }
 }
