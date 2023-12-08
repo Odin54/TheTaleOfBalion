@@ -402,11 +402,12 @@
 "Assets/Scripts/GUI/GameplayUI/WeaponText.cs"
 "Assets/Scripts/ObjectOpacityChangeTrigger.cs"
 "Assets/Scripts/Player/HeadRotation.cs"
+"Assets/Scripts/Player/PlayerMana.cs"
 "Assets/Scripts/Player/PlayerMovement.cs"
 "Assets/Scripts/Player/PlayerStamina.cs"
 "Assets/Scripts/Player/PlayerStats.cs"
 "Assets/Scripts/Player/WeaponPickUp.cs"
-"Assets/Scripts/Player/WeaponsBehavior.cs"
+"Assets/Scripts/Player/WeaponsBehaviour.cs"
 "Assets/Scripts/ScreenSize.cs"
 "Assets/TutorialInfo/Scripts/Readme.cs"
 -langversion:9.0

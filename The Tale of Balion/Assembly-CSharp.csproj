@@ -61,10 +61,11 @@
     <Compile Include="Assets\Scripts\ScreenSize.cs" />
     <Compile Include="Assets\Scripts\GUI\Buttons\BackToGameButton.cs" />
     <Compile Include="Assets\Scripts\GUI\GameplayUI\GUIHealthBarScale.cs" />
-    <Compile Include="Assets\Scripts\Player\WeaponsBehavior.cs" />
+    <Compile Include="Assets\Scripts\Player\PlayerMana.cs" />
     <Compile Include="Assets\Scripts\Player\WeaponPickUp.cs" />
     <Compile Include="Assets\Scripts\ObjectOpacityChangeTrigger.cs" />
     <Compile Include="Assets\Scripts\GUI\GameplayUI\HealthText.cs" />
+    <Compile Include="Assets\Scripts\Player\WeaponsBehaviour.cs" />
     <Compile Include="Assets\CameraScaler\CameraScaler.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerStamina.cs" />
     <Compile Include="Assets\Scripts\GUI\GameplayUI\GUIStaminaBarScale.cs" />

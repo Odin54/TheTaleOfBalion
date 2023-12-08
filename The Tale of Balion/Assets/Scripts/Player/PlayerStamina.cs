@@ -6,7 +6,6 @@ public class PlayerStamina : MonoBehaviour
 {
     private static float NeededStaminaAmplifier = 0.2f;
     private static float SprintStaminaAdjuster  = -10f;
-    private static float RestStaminaAdjuster    = 20f;
     private static bool IsSprintIncreased       = false;
 
     public static bool IsPlayerSprintUsable()
@@ -22,7 +21,7 @@ public class PlayerStamina : MonoBehaviour
     {
         if (PlayerStats.PlayerStaminaAmount <= PlayerStats.PlayerStaminaMax)
         {
-            PlayerStats.PlayerStaminaAmount += RestStaminaAdjuster * Time.deltaTime;
+            PlayerStats.PlayerStaminaAmount += PlayerStats.PlayerStaminaRegen * Time.deltaTime;
         }
         if (PlayerStats.PlayerStaminaAmount > PlayerStats.PlayerStaminaMax)
         {

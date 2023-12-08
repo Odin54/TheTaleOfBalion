@@ -9,10 +9,13 @@ public class PlayerStats : MonoBehaviour
     public static float MoveSpeed           = 5;
     public static float PlayerStaminaAmount = 100f;
     public static float PlayerStaminaMax    = 100f;
+    public static float PlayerStaminaRegen  = 20f;
     public static float PlayerHealthAmount  = 100f;
     public static float PlayerHealthMax     = 100f;
+    public static float PlayerHealthRegen   = 100f;
     public static float PlayerManaAmount    = 100f;
     public static float PlayerManaMax       = 100f;
+    public static float PlayerManaRegen     = 20f;
 
     public static bool IsPlayerSprinting    = false;
     public static bool IsPlayerMoving       = false;
