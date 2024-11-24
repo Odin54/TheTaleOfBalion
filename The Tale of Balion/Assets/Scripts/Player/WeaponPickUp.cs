@@ -18,7 +18,7 @@ public class WeaponPickUp : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log(distanceBetweenWeaponAndPlayer);
+        // Debug.Log(distanceBetweenWeaponAndPlayer);
         if (distanceBetweenWeaponAndPlayer < weaponPickDistance)
         {
             PlayerStats.PlayerCurrentWeapon = WeaponName;

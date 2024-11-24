@@ -18,6 +18,6 @@ public class PlayerMana : MonoBehaviour
         {
             PlayerStats.PlayerManaAmount += PlayerStats.PlayerManaRegen * Time.deltaTime;
         }
-        Debug.Log(PlayerStats.PlayerManaAmount);
+        // Debug.Log(PlayerStats.PlayerManaAmount);
     }
 }

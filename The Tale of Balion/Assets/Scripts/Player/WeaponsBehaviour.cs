@@ -9,15 +9,36 @@ public class WeaponsBehaviour : MonoBehaviour
     public GameObject fireShootFrostStaff;
 
     private float fireStaffManaCost   = 10f;
+    public float fireStaffAttackSpeed = 1.5f;
+    // public Rigidbody2D rb;
+    
     private float frostStaffManaCost  = 10f;
+
+    float timeCurrent;
+    float timeAtButtonDown;
+    float timeAtButtonUp;
+    float timeButtonHeld = 0;
 
     void Update()
     {
+        timeCurrent = Time.fixedTime;
         if (PlayerStats.PlayerCurrentWeapon == "Fire Staff")
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                FireStaffShoot();
+                timeAtButtonDown = timeCurrent;
+                Debug.Log("Time current" + timeCurrent);
+            }
+            if (Input.GetButtonUp("Fire1"))
+            {
+                timeAtButtonUp = timeCurrent;
+                timeButtonHeld = (timeAtButtonUp - timeAtButtonDown);
+                Debug.Log("Time button pressed" + timeButtonHeld);
+                if (timeButtonHeld > 0.7)
+                {
+                    timeButtonHeld = 0;
+                    FireStaffShoot();
+                }
             }
         }
         if (PlayerStats.PlayerCurrentWeapon == "Frost Staff")

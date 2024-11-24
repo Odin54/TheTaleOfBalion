@@ -21,13 +21,19 @@ public class RoofDisappearing : MonoBehaviour
         
     }
 
-    private void OnTriggerEnter2D()
+    private void OnTriggerEnter2D(Collider2D hitInfo)
     {
-        RoofLayer.color = new Color (1f, 1f, 1f, EnterOpacity);
+        if (hitInfo.gameObject.tag == "Player")
+        {
+            RoofLayer.color = new Color (1f, 1f, 1f, EnterOpacity);
+        }
     }
-        private void OnTriggerExit2D()
+        private void OnTriggerExit2D(Collider2D hitInfo)
     {
-        RoofLayer.color = new Color (1f, 1f, 1f, LeaveOpacity);
+        if (hitInfo.gameObject.tag == "Player")
+        {
+            RoofLayer.color = new Color (1f, 1f, 1f, LeaveOpacity);
+        }
     }
 
 }
